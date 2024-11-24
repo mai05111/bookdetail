@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <script>
+        const bookData = {
+            "Books": [
+                {
+                    "title": "The Great Gatsby",
+                    "authors": "F. Scott Fitzgerald",
+                    "publication Year": "1925",
+                    "genres": ["Fiction", "Classics"]
+                },
+                {
+                    "title": "To Kill a Mockingbird",
+                    "authors": "Harper Lee",
+                    "publication Year": "1960",
+                    "genres": ["Fiction", "Coming-of-Age"]
+                }
+            ]
+        };
+
+        function displayBookDetails() {
+            const books = bookData.Books; // Access the Books array
+
+            // Extract required details
+            const titleOfFirstBook = books[0].title;
+            const authorOfSecondBook = books[1].authors; // Correctly access authors
+            const genresOfAllBooks = books.map(book => book.genres.join(", ")).join("; ");
+
+            // Display details in the respective HTML elements
+            document.getElementById("titleFirstBook").textContent = titleOfFirstBook;
+            document.getElementById("authorSecondBook").textContent = authorOfSecondBook;
+            document.getElementById("genresAllBooks").textContent = genresOfAllBooks;
+        }
+    </script>
+</head>
+<body onload="displayBookDetails()">
+    <h1>Book Details</h1>
+    <p><strong>Title of the first book:</strong> <span id="titleFirstBook"></span></p>
+    <p><strong>Author of the second book:</strong> <span id="authorSecondBook"></span></p>
+    <p><strong>Genres of all books:</strong> <span id="genresAllBooks"></span></p>
+</body>
+</html>
